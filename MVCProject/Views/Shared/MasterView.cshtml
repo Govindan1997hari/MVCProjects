@@ -1,0 +1,16 @@
+﻿<div style="background-color:gainsboro;color:red;text-align:center;font-family:Arial;font-size:large;width:auto;height:50px">
+    <h1>Order Details</h1>
+</div>
+<div style="background-color:gainsboro;color:red;text-align:center;font-family:Arial;font-size:large;width:auto;height:50px">
+    <table cellpadding="10" align="center">
+        <tr style="text-align:center">
+            <td>@Html.ActionLink("Place Order", "AddOrder", "OrderCRUD")</td>
+            <td>@Html.ActionLink("Search By Customer Name", "GetOrderByCustomer", "OrderCRUD")</td>
+            <td>@Html.ActionLink("Select By ID", "GetOrderByID", "OrderCRUD")</td>
+            <td>@Html.ActionLink("Home Page","Homepage","OrderCRUD")</td>
+        </tr>
+    </table>
+</div>
+<div style="background-color:aliceblue">
+    @RenderBody()
+</div>

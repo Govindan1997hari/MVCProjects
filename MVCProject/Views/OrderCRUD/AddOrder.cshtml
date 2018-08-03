@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "AddOrder";
+}
+
+<h2 style="text-align:center" >Place Order</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div style="background-color:white;height:400px;width:auto">
+        <br />
+        <br />
+        <table border="1" align="center" cellpadding="15" style="font-family:'Berlin Sans FB';font-size:large;border-width:2px">
+            <tr style="background-color:darkgray">
+                <th colspan="2" align="center" style="color:lightskyblue">Input Order</th>
+            </tr>
+            <tr>
+                <td>Product Name:</td>
+                <td>@Html.TextBox("txtpname")</td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td>@Html.TextBox("txtprice")</td>
+            </tr>
+            <tr>
+                <td>Customer:</td>
+                <td>@Html.DropDownList("ddlname",Session["sdata"] as SelectList) </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Cancel" name="command"/></td>
+                <td><input type="submit" value="Insert" name="command"/></td>
+            </tr>
+        </table>
+    </div>
+}
+

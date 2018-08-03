@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MVCProject.Models.ProjectDBEntities>
+@{
+    ViewBag.Title = "ChangeOrderPrice";
+}
+
+<h2>ChangeOrderPrice</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    if (Session["udata"]!= null)
+    {
+        MVCProject.Models.tbl_order obj = (MVCProject.Models.tbl_order)Session["udata"];
+        <table>
+            <tr>
+                <th>Modify Order Details</th>
+            </tr>
+            <tr>
+                <td>Order ID :</td>
+                <td><input type="text" id="txtid" name="txtid" value="@obj.orderId" readonly/></td>
+            </tr>
+            <tr>
+                <td>Product Name :</td>
+                <td><input type="text" id="txtname" name="txtname" value="@obj.productName" readonly /></td>
+            </tr>
+            <tr>
+                <td>Price :</td>
+                <td><input type="text" id="txtprice" name="txtprice" value="@obj.price"  /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update" name="command" /></td>
+            </tr>
+        </table>
+    }
+    else
+    {
+        <table><tr><td>Error:</td></tr></table>
+    }
+}

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVCProject.Models.ProjectDBEntities>
+@{
+    ViewBag.Title = "GetOrderByCustomer";
+}
+
+<h2 style="text-align:center">Search Order By Customer Name</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div style="background-color:white;height:auto;width:auto">
+        <table align="center" cellpadding="10">
+            <tr>
+                <td>Select Name:</td>
+                <td>@Html.DropDownList("ddlid", Session["sdata"] as SelectList)</td>
+                <td><input type="submit" value="Search" name="command" /></td>
+            </tr>
+        </table>
+    </div>
+    <div style="background-color:white;height:auto;width:auto">
+        <table align="center" cellpadding="10">
+            @if (Session["pdata"] != null)
+            {
+                List<MVCProject.Models.tbl_order> pname = (List<MVCProject.Models.tbl_order>)Session["pdata"];
+                Session["check"] = "customer";
+                foreach (var p in pname)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(@p.productName, "ChangeOrderPrice", new { Id = @p.orderId.ToString() })</td>
+                    </tr>
+                }
+
+            }
+        </table>
+    </div>
+}
+
